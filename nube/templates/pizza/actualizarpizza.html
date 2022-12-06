@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block content %} {{ dato.color}}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <p>
+    <label for="id_color">Color:</label>
+    <input
+      type="text"
+      name="color"
+      maxlength="20"
+      id="id_color"
+      value="{{dato.color}}"
+    />
+  </p>
+  <p>
+    <label for="id_modelo">Modelo:</label>
+    <input
+      type="text"
+      name="modelo"
+      maxlength="20"
+      id="id_modelo"
+      value="{{dato.modelo}}"
+    />
+  </p>
+  <p>
+    <label for="id_anio">Anio:</label>
+    <input
+      type="number"
+      name="anio"
+      required=""
+      id="id_anio"
+      value="{{dato.anio}}"
+    />
+  </p>
+  <p>
+    <label for="id_marca">Marca:</label>
+    <input
+      type="text"
+      name="marca"
+      maxlength="20"
+      id="id_marca"
+      value="{{dato.marca}}"
+    />
+  </p>
+
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock content %}

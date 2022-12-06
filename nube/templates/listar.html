@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<button onclick="location.href='/crear'">agregar</button>
+
+    <table>
+
+        <tr>
+
+        <th>color</th>
+        <th>modelo</th>
+        <th>año</th>
+        <th>marca</th>
+        <th>accion1</th>
+        <th>accion2</th>
+
+        </tr>
+        {% for n in carros %}        
+            <tr>
+            <td>{{n.color}}</td>
+            <td>{{n.modelo}}</td>
+            <td>{{n.anio}}</td>
+            <td>{{n.marca}}</td>
+            <td><button id="{{n.id}}" onclick="location.href='/actualizar/{{n.id}}'">actualizar</button></td>
+            <td><button id="{{n.id}}" onclick="location.href='/eliminar/{{n.id}}'">eliminar</button></td>
+            </tr>
+        
+        </table>
+    {% endfor %}
+
+{% endblock content %}

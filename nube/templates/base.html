@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block title %}
+    <title>Servicios en la nube</title>
+    {% endblock title %}
+
+    <style></style>
+  </head>
+  <body>
+    <header></header>
+
+    <main>{% block content %} {% endblock content%}</main>
+
+    <script type="text/javascript"></script>
+    {% block js %} {% endblock js %}
+
+    <footer></footer>
+  </body>
+</html>

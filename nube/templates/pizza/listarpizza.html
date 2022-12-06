@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<button onclick="location.href='pizza/crearpizza'">agregar</button>
+
+<table>
+  <tr>
+    <th>Pizza</th>
+    <th>Tamaño</th>
+    <th>Precio</th>
+  </tr>
+  {% for n in pizza %}
+  <tr>
+    <td>{{n.tipopizza}}</td>
+    <td>{{n.tamano}}</td>
+    <td>{{n.precio}}</td>
+    <br />
+    <td>
+      <button id="{{n.id}}" onclick="location.href='/actualizarpizza/{{n.id}}'">
+        actualizar
+      </button>
+    </td>
+    <td>
+      <button id="{{n.id}}" onclick="location.href='/eliminarpizza/{{n.id}}'">
+        eliminar
+      </button>
+    </td>
+  </tr>
+</table>
+{% endfor %} {% endblock content %}

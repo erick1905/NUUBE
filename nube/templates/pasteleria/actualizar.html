@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+{{ dato.color}}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><label for="id_tipopizza">tipopasteleria:</label> <input type="text" name="color" maxlength="20" id="id_color" value="{{dato.tipopasteleria}}"></p>
+    <p><label for="id_modelo">tamano:</label> <input type="text" name="modelo" maxlength="20" id="id_modelo" value="{{dato.tamano}}"></p>
+    <p><label for="id_marca">precio:</label> <input type="text" name="marca" maxlength="20" id="id_marca" value="{{dato.precio}}"></p>
+    
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+</form>
+{% endblock content %}

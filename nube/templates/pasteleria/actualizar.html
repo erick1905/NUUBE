@@ -1,14 +1,110 @@
-{% extends "base.html" %}
-{% block content %}
-{{ dato.color}}
+{% extends "base.html" %} {% block content %} {{ dato.color}}
 <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p><label for="id_tipopizza">tipopasteleria:</label> <input type="text" name="color" maxlength="20" id="id_color" value="{{dato.tipopasteleria}}"></p>
-    <p><label for="id_modelo">tamano:</label> <input type="text" name="modelo" maxlength="20" id="id_modelo" value="{{dato.tamano}}"></p>
-    <p><label for="id_marca">precio:</label> <input type="text" name="marca" maxlength="20" id="id_marca" value="{{dato.precio}}"></p>
-    
+  {% csrf_token %}
+  <p>
+    <style type="text/css">
+      body {
+        padding-left: 11em;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        color: purple;
+        background-color: #ffe4c4;
+      }
+      ul.navbar {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 2em;
+        left: 1em;
+        width: 9em;
+      }
+      h1 {
+        font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+      }
+      ul.navbar li {
+        background: white;
+        margin: 0.5em 0;
+        padding: 0.3em;
+        border-right: 1em solid black;
+      }
+      ul.navbar a {
+        text-decoration: none;
+      }
+      a:link {
+        color: blue;
+      }
+      a:visited {
+        color: purple;
+      }
 
-        <button type="submit" class="btn btn-primary">Actualizar</button>
+      table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        margin: 0 0 1em 0;
+        caption-side: top;
+      }
+      caption,
+      td,
+      th {
+        padding: 0.3em;
+      }
+      tbody {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+      }
+      tbody th,
+      tfoot th {
+        border: 0;
+      }
+      th.name {
+        width: 25%;
+      }
+      th.location {
+        width: 20%;
+      }
+      th.lasteruption {
+        width: 30%;
+      }
+      th.eruptiontype {
+        width: 25%;
+      }
+      tfoot {
+        text-align: center;
+        color: #555;
+        font-size: 0.8em;
+      }
+    </style>
+    <label for="id_tipopastel">sabor pastel:</label>
+    <input
+      type="text"
+      name="tipopastel"
+      maxlength="20"
+      id="id_tipopastel"
+      value="{{dato.tipopastel}}"
+    />
+  </p>
+  <p>
+    <label for="id_tamano">tamano:</label>
+    <input
+      type="text"
+      name="tamano"
+      maxlength="20"
+      id="id_tamano"
+      value="{{dato.tamano}}"
+    />
+  </p>
+  <p>
+    <label for="id_precio">precio:</label>
+    <input
+      type="text"
+      name="precio"
+      maxlength="20"
+      id="id_precio"
+      value="{{dato.precio}}"
+    />
+  </p>
 
+  <button type="submit" class="btn btn-primary">Actualizar</button>
 </form>
 {% endblock content %}

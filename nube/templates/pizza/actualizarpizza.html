@@ -1,47 +1,109 @@
 {% extends "base.html" %} {% block content %} {{ dato.color}}
 <form method="post" enctype="multipart/form-data">
+  <style type="text/css">
+    body {
+      padding-left: 11em;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: purple;
+      background-color: #ffe4c4;
+    }
+    ul.navbar {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 2em;
+      left: 1em;
+      width: 9em;
+    }
+    h1 {
+      font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+    }
+    ul.navbar li {
+      background: white;
+      margin: 0.5em 0;
+      padding: 0.3em;
+      border-right: 1em solid black;
+    }
+    ul.navbar a {
+      text-decoration: none;
+    }
+    a:link {
+      color: blue;
+    }
+    a:visited {
+      color: purple;
+    }
+
+    table {
+      width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+      margin: 0 0 1em 0;
+      caption-side: top;
+    }
+    caption,
+    td,
+    th {
+      padding: 0.3em;
+    }
+    tbody {
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    tbody th,
+    tfoot th {
+      border: 0;
+    }
+    th.name {
+      width: 25%;
+    }
+    th.location {
+      width: 20%;
+    }
+    th.lasteruption {
+      width: 30%;
+    }
+    th.eruptiontype {
+      width: 25%;
+    }
+    tfoot {
+      text-align: center;
+      color: #555;
+      font-size: 0.8em;
+    }
+  </style>
   {% csrf_token %}
   <p>
-    <label for="id_color">Color:</label>
+    <label for="id_tipopizza">Pizza::</label>
     <input
       type="text"
-      name="color"
+      name="tipopizza"
       maxlength="20"
-      id="id_color"
-      value="{{dato.color}}"
+      id="id_tipopizza"
+      value="{{dato.tipopizza}}"
     />
   </p>
   <p>
-    <label for="id_modelo">Modelo:</label>
+    <label for="id_tamano">Tamaño:</label>
     <input
       type="text"
-      name="modelo"
+      name="tamano"
       maxlength="20"
-      id="id_modelo"
-      value="{{dato.modelo}}"
+      id="id_tamano"
+      value="{{dato.tamano}}"
     />
   </p>
   <p>
-    <label for="id_anio">Anio:</label>
+    <label for="id_precio">Precio:</label>
     <input
       type="number"
-      name="anio"
+      name="precio"
       required=""
-      id="id_anio"
-      value="{{dato.anio}}"
+      id="id_precio"
+      value="{{dato.precio}}"
     />
   </p>
-  <p>
-    <label for="id_marca">Marca:</label>
-    <input
-      type="text"
-      name="marca"
-      maxlength="20"
-      id="id_marca"
-      value="{{dato.marca}}"
-    />
-  </p>
-
   <button type="submit" class="btn btn-primary">Actualizar</button>
 </form>
 {% endblock content %}

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i309*%rp0zybuz^%e-s#6nc*#f&(0-kxl8y-lsikdcx9k-ioi!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['crudnubepizza.azurewebsites.net','127.0.0.1']
 
 
 # Application definition
@@ -79,10 +79,8 @@ WSGI_APPLICATION = 'nube.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nube',
-        'USER': 'root',
-        'HOST': '127.0.0.1',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR /'db.sqlite3',
         
     }
 }

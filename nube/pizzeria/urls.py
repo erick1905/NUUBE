@@ -14,7 +14,7 @@ from .views import *
 
 urlpatterns = [
     path('pizza/listarpizza/',listarpizza,name="pizza/listarpizza"),
-    path('pizza/crearpizza', nuevapizza, name='pizza/crearpizza'),
+    path('pizzas/crear/', crearpizza, name='crearpizza/'),
     path('eliminarpizza/<int:id>',eliminarpizza,name='eliminarpizza'),
-    path('/actualizarpizza/<int:id>',actualizarpizza,name='/actualizarpizza/'),
+    path('actualizarpizza/<int:id>',actualizarpizza,name='actualizarpizza/'),
 ]

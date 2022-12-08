@@ -29,12 +29,12 @@ def listarpizza(request):
     }
     return render (request,template,context)
 
-def nuevapizza(request): 
+def crearpizza(request): 
     if request.method=='POST':
         form= agregar(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/pizza/listarpizza.html")
+            return redirect('/pizza/listarpizza')
 
     form = agregar 
     context={
@@ -49,20 +49,20 @@ def eliminarpizza(request, id):
     member.delete()
     return redirect('pizza/listarpizza')
 
-def actualizarpizza(request, id):
+def actualizarpizza(request,id):
     if request.method=='POST':
         instance=pizza.objects.get(id=id)
         form=agregar(request.POST or None, instance=instance)
         if form.is_valid():
             form.save()
-            return redirect('/pizza/listarpizza')
+            return redirect('pizza/listarpizza')
+    
     dato = pizza.objects.get(id=id)
-    templatespiiza = 'actualizar.html'
+    template = 'pizza/actualizarpizza.html'
     context = {
     'dato': dato,
     }
-    return render(request, templatespiiza, context)
+    return render(request, template, context)
 
-  
-  
-  
+
+

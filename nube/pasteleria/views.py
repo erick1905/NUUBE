@@ -29,41 +29,39 @@ def listar(request):
     }
     return render (request,template,context)
 
-def pasteleriacrear(request): 
+def crearpastel(request): 
     if request.method=='POST':
         form= agregar(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('listar')
+            return redirect('/pasteleria/listar/')
 
     form = agregar 
     context={
         'form':form,
 
     }
-    return render (request, "agregar.html", context)
-def eliminar(request, id):
-  member = pasteleria.objects.get(id=id)
-  member.delete()
-  return redirect(reverse('listar'))
+    return render (request, "pasteleria/agregar.html", context)
 
-def actualizar(request, id):
+def eliminarpastel(request, id):
+    member= pasteleria.objects.get(id=id)
+    member.delete()
+    return redirect('pasteleria/listar/')
+
+def actualizarpastel(request,id):
     if request.method=='POST':
         instance=pasteleria.objects.get(id=id)
         form=agregar(request.POST or None, instance=instance)
         if form.is_valid():
             form.save()
-            return redirect('listar')
+            return redirect('pasteleria/listar/')
     
     dato = pasteleria.objects.get(id=id)
-    #form= agregar()
-    #form=mymember
-    templatesPasteleria = 'actualizar.html'
+    template = 'pasteleria/actualizar.html'
     context = {
     'dato': dato,
-    #'form':form,
     }
-    return render(request, templatesPasteleria, context)
+    return render(request, template, context)
 
   
   

@@ -12,7 +12,7 @@ from .views import *
 
 urlpatterns = [
     path('pasteleria/listar/',listar,name="pasteleria/listar/"),
-    path('pasteleria/crear/', pasteleriacrear, name='pasteleria/crear'),
-    path('Eliminar/<int:id>',eliminar,name='Eliminar'),
-    path('sactualizar/<int:id>',actualizar,name='actualizar'),
+     path('pasteleria/crearpastel/', crearpastel, name='crearpastel/'),
+    path('eliminarpastel/<int:id>',eliminarpastel,name='eliminarpastel'),
+    path('actualizarpastel/<int:id>',actualizarpastel,name='actualizarpastel/'),
 ]
